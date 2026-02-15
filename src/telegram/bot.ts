@@ -27,6 +27,7 @@ import { getChildLogger } from "../logging.js";
 import { createSubsystemLogger } from "../logging/subsystem.js";
 import { resolveAgentRoute } from "../routing/resolve-route.js";
 import { resolveTelegramAccount } from "./accounts.js";
+import { withTelegramApiErrorLogging } from "./api-logging.js";
 import { registerTelegramHandlers } from "./bot-handlers.js";
 import { createTelegramMessageProcessor } from "./bot-message.js";
 import { registerTelegramNativeCommands } from "./bot-native-commands.js";
@@ -42,10 +43,9 @@ import {
   resolveTelegramForumThreadId,
   resolveTelegramStreamMode,
 } from "./bot/helpers.js";
-import { withTelegramApiErrorLogging } from "./api-logging.js";
 import { resolveTelegramFetch } from "./fetch.js";
-import { wasSentByBot } from "./sent-message-cache.js";
 import { enqueuePollAnswerEvent } from "./poll-answer-cache.js";
+import { wasSentByBot } from "./sent-message-cache.js";
 
 export type TelegramBotOptions = {
   token: string;

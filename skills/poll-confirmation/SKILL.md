@@ -6,6 +6,7 @@ description: Use when the user is deciding between clear options and normal clar
 # Poll Confirmation Skill
 
 Use this skill only when all are true:
+
 - The user needs to choose between options.
 - Options can be written as short labels.
 - A normal text clarification did not produce a clear choice.
@@ -20,6 +21,7 @@ Use this skill only when all are true:
 ## Tool Call Pattern
 
 Use `message` tool with:
+
 - `action: "poll"`
 - `pollQuestion`
 - `pollOption` (2-5 options preferred)
@@ -27,6 +29,7 @@ Use `message` tool with:
 - `channel` only if required by context
 
 Telegram-specific optional fields:
+
 - `pollPublic: true` for non-anonymous
 - `pollAnonymous: true` for anonymous
 - `pollDurationSeconds` (Telegram supports 5-600)
