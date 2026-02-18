@@ -259,7 +259,8 @@ export async function handleTelegramAction(
         question,
         options,
         maxSelections:
-          maxSelections ?? (allowMultiselect ? Math.max(2, options.length) : undefined),
+          maxSelections ??
+          (allowMultiselect ? Math.max(2, options.length) : action === "poll" ? 1 : undefined),
         durationSeconds: durationSeconds ?? undefined,
         durationHours: durationHours ?? undefined,
       },
