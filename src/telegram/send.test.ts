@@ -1453,7 +1453,7 @@ describe("sendPollTelegram", () => {
     ).toBeUndefined();
   });
 
-  it("rejects durationHours for Telegram polls", async () => {
+  it("rejects out-of-range durationHours for Telegram polls", async () => {
     const api = { sendPoll: vi.fn() };
 
     await expect(
@@ -1462,7 +1462,7 @@ describe("sendPollTelegram", () => {
         { question: "Q", options: ["A", "B"], durationHours: 1 },
         { token: "t", api: api as unknown as Bot["api"] },
       ),
-    ).rejects.toThrow(/durationHours is not supported/i);
+    ).rejects.toThrow(/durationSeconds must be between 5 and 600/i);
 
     expect(api.sendPoll).not.toHaveBeenCalled();
   });
